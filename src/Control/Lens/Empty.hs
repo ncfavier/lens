@@ -55,7 +55,7 @@ import Data.Vector.Unboxed (Unbox)
 import qualified Data.Vector.Storable as Storable
 import Foreign.Storable (Storable)
 
-#if !defined(mingw32_HOST_OS) && !defined(ghcjs_HOST_OS)
+#if !defined(mingw32_HOST_OS) && !defined(ghcjs_HOST_OS) && !defined(javascript_HOST_ARCH)
 import GHC.Event
 #endif
 
@@ -81,7 +81,7 @@ instance AsEmpty Ordering
 instance AsEmpty ()
 instance AsEmpty Any
 instance AsEmpty All
-#if !defined(mingw32_HOST_OS) && !defined(ghcjs_HOST_OS)
+#if !defined(mingw32_HOST_OS) && !defined(ghcjs_HOST_OS) && !defined(javascript_HOST_ARCH)
 instance AsEmpty Event
 #endif
 instance (Eq a, Num a) => AsEmpty (Product a)
